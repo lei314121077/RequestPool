@@ -1,4 +1,4 @@
-# go 如何用连接池＆写协程池实现高并发＆qps项目的研究与实现
+# go 如何用连接池＆协程池实现高并发＆qps项目的研究与实现
 
 
 ## 参考１ [每分钟处理一百万请求 Handling 1 Million Requests per Minute with Go](http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/)
