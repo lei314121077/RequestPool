@@ -1,13 +1,10 @@
 # go 如何用连接池＆协程池实现高并发＆qps项目的研究与实现
 
-
 ## 参考１ [每分钟处理一百万请求 Handling 1 Million Requests per Minute with Go](http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/)
-
 
 * 基本概念 
     
    其实最主要的还是一个链接池的概念，相信用过sync.pool这个golang内置的库或者有研究的话，理解起来就很方便了。
-   
    
    * payload 工作任务对象
    
@@ -36,7 +33,16 @@
         worker则从该通道中取出对应的工作，并执行对应的工作任务
    
        ```
+* 实测环境 ubuntu 64bit 2核4GB
    
+   ```
+   200000   ~ 1.255300401s
+   300000   ~ 2.027193592s
+   400000   ~ 3.306656942s
+   500000   ~ 3.650426811s
+   1000000QPS 
+   ``` 
+      
 * 列举一些可以应用的领域
 
    * 分布式服务ＤＢ

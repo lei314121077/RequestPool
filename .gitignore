@@ -1,0 +1,9 @@
+*.idea
+*.xml
+*.env
+*.zip
+
+/pkg
+/bin
+
+

@@ -1,11 +1,5 @@
 package poolone
 
-import (
-		"time"
-	"math/rand"
-	"fmt"
-)
-
 //var (
 //	MaxWorker = os.Getenv("MAX_WORKERS")
 //	MaxQueue  = os.Getenv("MAX_QUEUE")
@@ -28,7 +22,7 @@ type Worker struct {
 }
 
 func NewWorker(workerPool chan chan Job, name string) Worker {
-	fmt.Printf("create a worker, name is :%s \n",name)
+	//fmt.Printf("create a worker, name is :%s \n",name)
 
 	return Worker{
 		Name:name,
@@ -45,17 +39,17 @@ func (w Worker) Start() {
 		for {
 			// register the current worker into the worker queue.
 			w.WorkerPool <- w.JobChannel
-			fmt.Printf("[%s]get a work ,process task~~![%s] \n",w.Name, len(w.JobChannel))
+			//fmt.Printf("[%s]get a work ,process task~~![%s] \n",w.Name, len(w.JobChannel))
 
 			select {
 
 			case job := <- w.JobChannel:
 				// we have received a work request. need process work task!
-				fmt.Printf("[%s]->we have received a work request. need process work task! task lenght! [%d] !\n",w.Name, len(w.WorkerPool))
+				//fmt.Printf("[%s]->we have received a work request. need process work task! task lenght! [%d] !\n",w.Name, len(w.WorkerPool))
 
 				job.Payload.Process()
 
-				time.Sleep(time.Duration(rand.Int31n(1000)) * time.Millisecond)
+				//time.Sleep(time.Duration(rand.Int31n(1000)) * time.Millisecond)
 
 
 			case <-w.quit:

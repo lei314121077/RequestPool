@@ -8,5 +8,5 @@ type Payload struct{
 
 //@name task process function
 func (p *Payload) Process(){
-	fmt.Printf("%v 执行任务,任务处理完成！", p.Name)
+	fmt.Printf("%v 执行任务,任务处理完成！\n", p.Name)
 }

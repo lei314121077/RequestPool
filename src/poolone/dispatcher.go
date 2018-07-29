@@ -3,9 +3,7 @@ package poolone
 import (
 	"fmt"
 	"strconv"
-	"time"
-	"math/rand"
-)
+		)
 
 type Dispatcher struct {
 	// A pool of workers channels that are registered with the dispatcher
@@ -39,8 +37,8 @@ func (d *Dispatcher) dispatch() {
 		select {
 		case job := <-JobQueue:
 			//　dispatch get a job work
-			fmt.Println("dispatch get a job work")
-			time.Sleep(time.Duration(rand.Int31n(1000)) * time.Millisecond)
+			//fmt.Println("dispatch get a job work")
+			//time.Sleep(time.Duration(rand.Int31n(1000)) * time.Millisecond)
 
 			// a job request has been received
 			go func(job Job) {
