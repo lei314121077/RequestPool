@@ -10,8 +10,8 @@ import (
 var (
 	//MaxWorker = os.Getenv("MAX_WORKERS")
 	//MaxQueue  = os.Getenv("MAX_QUEUE")
-	MaxWorker = 100000 // this max work lenght is 100000
-	MaxQueue  = 100000  // this jobQueue chan max lenght is 100000
+	MaxWorker = 500000 // this max work lenght is 100000
+	MaxQueue  = 500000  // this jobQueue chan max lenght is 100000
 )
 
 

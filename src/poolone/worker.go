@@ -27,8 +27,7 @@ func NewWorker(workerPool chan chan Job, name string) Worker {
 	return Worker{
 		Name:name,
 		WorkerPool: workerPool,
-		//JobChannel: make(chan Job),
-		JobChannel: JobQueue,
+		JobChannel: make(chan Job),
 		quit:       make(chan bool)}
 }
 

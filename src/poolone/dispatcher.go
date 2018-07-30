@@ -44,10 +44,10 @@ func (d *Dispatcher) dispatch() {
 			go func(job Job) {
 				// try to obtain a worker job channel that is available.
 				// this will block until a worker is idle
-				jobChannel := <- d.WorkerPool
-
-				// dispatch the job to the worker job channel
-				jobChannel <- job
+				if jobChannel, ok := <- d.WorkerPool; ok{
+					// dispatch the job to the worker job channel
+					jobChannel <- job
+				}
 			}(job)
 		default:
 			//fmt.Println("process ok!")
